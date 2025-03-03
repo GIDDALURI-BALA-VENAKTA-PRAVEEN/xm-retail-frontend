@@ -15,7 +15,7 @@ RUN npm install
 
 COPY . .
 # Create Build file
-RUN npm run Build
+RUN npm run build
 
 
 #server with Nigina
