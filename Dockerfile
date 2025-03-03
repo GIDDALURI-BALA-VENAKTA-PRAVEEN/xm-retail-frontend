@@ -30,6 +30,9 @@ RUN rm -rf *
 #We have build file in /app/build copy taht file to html file
 COPY --from=build /app/dist ./
 
+# Copy a custom NGINX config file for React routing
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 #Nginx always use port 80
 EXPOSE 80
 
