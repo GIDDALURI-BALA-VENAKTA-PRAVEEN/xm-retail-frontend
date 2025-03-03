@@ -28,7 +28,7 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf *
 
 #We have build file in /app/build copy taht file to html file
-COPY --from=build /app/build .
+COPY --from=build /app/dist ./
 
 #Nginx always use port 80
 EXPOSE 80
