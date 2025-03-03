@@ -35,6 +35,4 @@ jobs:
       
       
       - name: Run Docker Container
-        run: docker run -d -p 3000:80 \
-         --name frontend-react-app-container \
-          parzival2808/frontend-react:latest
+        run: docker run -d -p 3000:80 --name frontend-react-app-container parzival2808/frontend-react:latest
