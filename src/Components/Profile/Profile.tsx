@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-
+// import React from "react";
+import { useEffect, useState } from 'react';
 import { FaUserCircle } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
