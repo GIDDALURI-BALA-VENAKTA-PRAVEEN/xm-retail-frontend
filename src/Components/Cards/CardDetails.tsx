@@ -25,7 +25,7 @@ const CardDetails = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | string>("");
   const [showRedeemModal, setShowRedeemModal] = useState(false);
   const [showNotesModal, setShowNotesModal] = useState(false);
-  const apiUrl = import.meta.env.VITE_API_URL;
+  // const apiUrl = import.meta.env.VITE_API_URL;
   const handleAmountChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedAmount(event.target.value);
   };
