@@ -28,7 +28,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: self-hosted
+    runs-on: self-hosted 
     steps:
       - name: Pull Image from Docker Hub
         run: docker pull parzival2808/frontend-react:latest
