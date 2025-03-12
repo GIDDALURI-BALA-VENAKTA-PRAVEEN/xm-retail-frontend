@@ -14,7 +14,7 @@ export default function Login() {
   const [timer, setTimer] = useState<number>(60);
   const [showResendButton, setShowResendButton] = useState<boolean>(false);
   const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = import.meta.env.REACT_APP_SERVER_BASE_URL;
 
   
   

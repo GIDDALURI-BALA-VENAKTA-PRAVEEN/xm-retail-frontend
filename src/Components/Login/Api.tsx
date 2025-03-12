@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
-
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.REACT_APP_SERVER_BASE_URL;
+// const apiUrl = import.meta.env.VITE_API_URL;
 const API_URL = `${apiUrl}/api/auth`;
 
 interface OtpResponse {

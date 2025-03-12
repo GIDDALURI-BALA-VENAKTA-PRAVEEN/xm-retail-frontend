@@ -18,10 +18,10 @@ interface CardAppProps {
 const CardApp: React.FC<CardAppProps> = ({ selectedCategory }) => {
   const [cards, setCards] = useState<CardType[]>([]);
   const [visibleCount, setVisibleCount] = useState(10); 
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const SERVER_URL =import.meta.env.REACT_APP_SERVER_BASE_URL;
   
   useEffect(() => {
-    axios.get(`${apiUrl}/api/cards`).then((res) => {
+    axios.get(`${SERVER_URL}/api/cards`).then((res) => {
       setCards(res.data);
     });
   }, []);

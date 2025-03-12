@@ -11,7 +11,7 @@ export default function Profile() {
   const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
   const [user, setUser] = useState({ name: "", email: "", phone: "" });
   const [isEditing, setIsEditing] = useState(false);
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = import.meta.env.REACT_APP_SERVER_BASE_URL;
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {

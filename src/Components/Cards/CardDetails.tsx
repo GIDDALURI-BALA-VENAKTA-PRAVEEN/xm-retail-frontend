@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import SimilarCards from "./SimilarCards";
 import axios from "axios";
-
+const SERVER_URL =import.meta.env.REACT_APP_SERVER_BASE_URL;
 interface CardDetailsType {
   _id: string;
   name: string;
@@ -32,7 +32,7 @@ const CardDetails = () => {
 
   const fetchCard = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/api/cards/${id}`);
+      const response = await axios.get(`${SERVER_URL}/api/cards/${id}`);
       setCard(response.data);
       fetchSimilarCards(response.data.category);
     } catch (err) {
@@ -45,7 +45,7 @@ const CardDetails = () => {
 
   const fetchSimilarCards = async (category: string) => {
     try {
-      const response = await axios.get(`${apiUrl}/api/cards/category/${category}`);
+      const response = await axios.get(`${SERVER_URL}/api/cards/category/${category}`);
       const filteredCards = response.data.filter((c: CardDetailsType) => c._id !== id);
       setSimilarCards(filteredCards);
     } catch (err) {
@@ -87,7 +87,7 @@ const CardDetails = () => {
         {/* Left Section */}
         <div className="space-y-4">
           <img
-            src={`${apiUrl}/uploads/${card.image}`}
+            src={`${SERVER_URL}/uploads/${card.image}`}
             alt={card.name}
             className="w-full h-64 object-contain rounded-lg border"
           />

@@ -17,7 +17,7 @@ function Nav() {
   const [cards, setCards] = useState<CardType[]>([]);
   const [filteredCards, setFilteredCards] = useState<CardType[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
-  const apiUrl = import.meta.env.VITE_API_URL; // For Vite
+  const apiUrl = import.meta.env.REACT_APP_SERVER_BASE_URL; // For Vite
 
   useEffect(() => {
     axios.get(`${apiUrl}/api/cards`).then((res) => {

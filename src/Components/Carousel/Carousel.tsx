@@ -7,7 +7,7 @@ export default function FullWidthCarousel() {
   const [index, setIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(3); // Default for Desktop
   const [images, setImages] = useState<string[]>([]);
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = import.meta.env.REACT_APP_SERVER_BASE_URL;
 
   // Fetch images from the API
   useEffect(() => {

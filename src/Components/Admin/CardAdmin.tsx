@@ -9,6 +9,7 @@ const categories = [
   "PHARMACY", "HOME & KITCHEN", "EDUCATION", "FOOD & GROCERY",
   "HOSTING", "DEPARTMENTAL"
 ];
+const SERVER_URL =import.meta.env.REACT_APP_SERVER_BASE_URL;
 
 interface FormDataType {
   name: string;
@@ -48,7 +49,7 @@ const CardAdmin = () => {
 
   const fetchCards = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/cards");
+      const response = await axios.get(`${SERVER_URL}/api/cards`);
       setCards(response.data);
     } catch (error) {
       console.error("Error fetching cards:", error);
@@ -83,10 +84,10 @@ const CardAdmin = () => {
       });
 
       if (editingCard) {
-        await axios.put(`http://localhost:5000/api/cards/${editingCard}`, data);
+        await axios.put(`${SERVER_URL}/api/cards/${editingCard}`, data);
         alert(`Card "${formData.name}" updated successfully!`);
       } else {
-        await axios.post("http://localhost:5000/api/cards", data);
+        await axios.post(`${SERVER_URL}/api/cards`, data);
         alert(`Card "${formData.name}" added successfully!`);
       }
       setFormData({
@@ -128,7 +129,7 @@ const CardAdmin = () => {
 
   const handleDelete = async (id:string, name:string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/cards/${id}`);
+      await axios.delete(`${SERVER_URL}/api/cards/${id}`);
       alert(`Card "${name}" deleted!`);
       fetchCards();
     } catch (error) {
@@ -173,7 +174,7 @@ const CardAdmin = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-5">
           {cards.map((card) => (
             <div key={card._id} className="bg-white p-4 rounded-lg shadow-md">
-              <img src={`http://localhost:5000/uploads/${card.image}`} alt={card.name} className="w-full h-32 object-cover rounded-md" />
+              <img src={`${SERVER_URL}/uploads/${card.image}`} alt={card.name} className="w-full h-32 object-cover rounded-md" />
               <h4 className="font-bold mt-2">{card.name}</h4>
               <p className="text-sm">Category: {card.category}</p>
               <p className="text-sm">Cashback: {card.cashback}%</p>

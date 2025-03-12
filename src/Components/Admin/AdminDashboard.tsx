@@ -5,8 +5,8 @@ import axios from "axios";
 
 export default function Admindash() {
   const [images, setImages] = useState<(string | null)[]>(Array(9).fill(null));
-  const SERVER_URL = "http://localhost:5000";
-  
+  // const SERVER_URL = "http://localhost:5000";
+  const SERVER_URL =import.meta.env.REACT_APP_SERVER_BASE_URL;
 
   // Fetch images from the backend
   useEffect(() => {

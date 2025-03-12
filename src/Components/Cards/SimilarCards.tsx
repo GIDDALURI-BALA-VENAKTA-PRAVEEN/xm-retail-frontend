@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+const SERVER_URL =import.meta.env.REACT_APP_SERVER_BASE_URL;
 interface CardDetailsType {
   _id: string;
   name: string;
@@ -23,7 +23,7 @@ const SimilarCards = ({ category, currentCardId }: { category: string; currentCa
   useEffect(() => {
     const fetchSimilarCards = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/api/cards/category/${category}`);
+        const response = await axios.get(`${SERVER_URL}/api/cards/category/${category}`);
         // Filter out the current card
         const filteredCards = response.data.filter((card: CardDetailsType) => card._id !== currentCardId);
         setSimilarCards(filteredCards);
