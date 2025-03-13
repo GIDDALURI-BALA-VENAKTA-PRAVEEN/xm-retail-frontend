@@ -38,7 +38,7 @@ const CardDetails = () => {
     } catch (err) {
       setError((err as Error).message || "Failed to fetch card details");
     }
-     finally {
+     finally { 
       setLoading(false);
     }
   };
